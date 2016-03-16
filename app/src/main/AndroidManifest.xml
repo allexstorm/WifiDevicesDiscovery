@@ -15,7 +15,7 @@
   ~
   ~     You should have received a copy of the GNU General Public License
   ~     along with Wifi Devices Discovery.  If not, see <http://www.gnu.org/licenses/>.
-  -->
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.alexandersamtsov.wifidevicesdiscovery">
 
@@ -29,18 +29,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity"
-                  android:screenOrientation="portrait">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DeviceInformation"
-                  android:screenOrientation="portrait"/>
-        <activity android:name=".Settings"
-                  android:screenOrientation="portrait"/>
+        <activity
+            android:name=".DeviceInformation"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Settings"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

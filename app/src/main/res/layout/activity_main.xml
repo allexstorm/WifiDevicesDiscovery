@@ -30,12 +30,29 @@
     tools:context="com.alexandersamtsov.wifidevicesdiscovery.MainActivity">
 
 
-    <TextView
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/mainactivity_ssid"
-        android:layout_gravity="center"/>
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/mainactivity_ssid"
+            android:layout_centerHorizontal="true"/>
+
+        <Button
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:id="@+id/mainactivity_settings_button"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/settings_button"
+            android:layout_gravity="end" />
+
+    </RelativeLayout>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -43,6 +60,7 @@
         android:text="New Text"
         android:id="@+id/mainactivity_myipaddr"
         android:layout_gravity="center"/>
+
 
     <TextView
         android:layout_width="wrap_content"

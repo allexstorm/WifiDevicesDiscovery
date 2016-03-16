@@ -66,14 +66,15 @@ public class MainActivity extends AppCompatActivity {
     private String myMac;
     private VendorsDbHelper myDbHelper;
     private String ssid;
+    private Button btnSettings;
 
     private Context context;
 
 
     private ListView lstDevList;
 
-    NetworkCheck networkCheck;
-    NetworkCheckAll networkCheckAll;
+    private NetworkCheck networkCheck;
+    private NetworkCheckAll networkCheckAll;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +87,8 @@ public class MainActivity extends AppCompatActivity {
         txtDisplay = (TextView) findViewById(R.id.mainactivity_texform);
         lstDevList = (ListView) findViewById(R.id.mainactivity_devlist);
         btnScan = (Button) findViewById(R.id.mainactivity_scan);
+        btnSettings = (Button) findViewById(R.id.mainactivity_settings_button);
+
 
 
         myDbHelper = new VendorsDbHelper(this);
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.e(TAG, "can't open db", e);
         }
+
 
 
 
@@ -121,7 +125,13 @@ public class MainActivity extends AppCompatActivity {
                 hosts);
             lstDevList.setAdapter(arrayAdapter);
 
+        btnSettings.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
 
+            }
+        });
 
 
         btnScan.setOnClickListener(new View.OnClickListener() {
