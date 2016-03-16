@@ -18,7 +18,7 @@
   -->
 
 <resources>
-    <string name="app_name">WifiDevicesDiscovery</string>
+    <string name="app_name">Wifi Devices Discovery</string>
 
     <string name="status_searching">Scanning&#8230;</string>
     <string name="status_finished">Finished! Devices discovered: %1$s</string>
