@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 inetAddress = InetAddress.getByName(checkIp + i);
                 try {
-                    inetAddress.isReachable(20);
+                    inetAddress.isReachable(28);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

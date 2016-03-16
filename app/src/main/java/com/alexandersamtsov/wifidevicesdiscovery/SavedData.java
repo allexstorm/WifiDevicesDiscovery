@@ -54,7 +54,7 @@ public class SavedData {
         editor.apply();
     }
 
-    public void saveIt(Context context, Set<String> data)
+    public void saveData(Context context, Set<String> data)
     {
         SharedPreferences settings;
         SharedPreferences.Editor editor;
