@@ -50,6 +50,18 @@ public class Settings extends AppCompatActivity {
         fast = (RadioButton) findViewById(R.id.settings_254fast_mode);
         slow = (RadioButton) findViewById(R.id.settings_254slow_mode);
 
+
+        SavedData data = new SavedData();
+
+            if (data.load254Mode(this) == 1) {
+                choose254Mode.check(R.id.settings_254fast_mode);
+                modeId = 1;
+            } else if (data.load254Mode(this) == 2) {
+                choose254Mode.check(R.id.settings_254slow_mode);
+                modeId = 2;
+            }
+
+
         choose254Mode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override

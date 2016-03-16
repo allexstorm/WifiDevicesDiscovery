@@ -102,7 +102,7 @@ public class SavedData {
         SharedPreferences settings;
         int mode;
         settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        mode = settings.getInt(PREFS_254MODE, 0);
+        mode = settings.getInt(PREFS_254MODE, 1);
         return mode;
     }
 
