@@ -19,15 +19,63 @@
 
 package com.alexandersamtsov.wifidevicesdiscovery;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class Settings extends AppCompatActivity {
+
+
+    private RadioGroup choose254Mode;
+    private RadioButton fast;
+    private RadioButton slow;
+    private int modeId;
+    private Context context = this;
+
+    private Button btnSaveMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+
+        btnSaveMode = (Button) findViewById(R.id.settings_save254mode_button);
+        choose254Mode = (RadioGroup) findViewById(R.id.settings_choose254mode);
+        fast = (RadioButton) findViewById(R.id.settings_254fast_mode);
+        slow = (RadioButton) findViewById(R.id.settings_254slow_mode);
+
+        choose254Mode.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                if (fast.isChecked()) {
+                    modeId = 1;
+                } else {
+                    modeId = 2;
+                }
+
+
+            }
+        });
+
+
+
+
+        btnSaveMode.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                SavedData data = new SavedData();
+                data.save254Mode(context, modeId);
+
+            }
+        });
 
 
 

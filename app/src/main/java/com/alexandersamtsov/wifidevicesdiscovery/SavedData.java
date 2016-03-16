@@ -38,6 +38,9 @@ public class SavedData {
     private static final String PREFS_VENDOR= "vendor";
 
 
+    private static final String PREFS_254MODE= "mode";
+
+
     public SavedData() {
         super();
     }
@@ -50,8 +53,17 @@ public class SavedData {
         settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
         editor = settings.edit();
         editor.putString(PREFS_NETWORK_NAME, networkName);
-        editor.putString(PREFS_NETWORK_NAME, networkName);
         editor.apply();
+    }
+
+
+    public String loadNetworkName(Context context)
+    {
+        SharedPreferences settings;
+        String name;
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        name = settings.getString(PREFS_NETWORK_NAME, "default");
+        return name;
     }
 
     public void saveData(Context context, Set<String> data)
@@ -64,15 +76,6 @@ public class SavedData {
         editor.apply();
     }
 
-    public String loadNetworkName(Context context)
-    {
-        SharedPreferences settings;
-        String name;
-        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
-        name = settings.getString(PREFS_NETWORK_NAME, "default");
-        return name;
-    }
-
     public Set<String> loadData(Context context)
     {
         SharedPreferences settings;
@@ -82,6 +85,28 @@ public class SavedData {
         set = settings.getStringSet(PREFS_DATA, setDefault);
         return set;
     }
+
+
+    public void save254Mode(Context context, int mode)
+    {
+        SharedPreferences settings;
+        SharedPreferences.Editor editor;
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        editor = settings.edit();
+        editor.putInt(PREFS_254MODE, mode);
+        editor.apply();
+    }
+
+    public int load254Mode(Context context)
+    {
+        SharedPreferences settings;
+        int mode;
+        settings = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        mode = settings.getInt(PREFS_254MODE, 0);
+        return mode;
+    }
+
+
 
 
 }

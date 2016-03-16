@@ -18,7 +18,7 @@
   ~     along with Wifi Devices Discovery.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -26,6 +26,32 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.alexandersamtsov.wifidevicesdiscovery.Settings">
 
-</RelativeLayout>
+    <RadioGroup
+        android:id="@+id/settings_choose254mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation='vertical'>
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_254_fastmode"
+            android:id="@+id/settings_254fast_mode" />
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_254_slowmode"
+            android:id="@+id/settings_254slow_mode" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_save254mode_button"
+        android:id="@+id/settings_save254mode_button"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
