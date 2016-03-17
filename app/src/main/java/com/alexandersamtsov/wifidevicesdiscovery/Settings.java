@@ -27,6 +27,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class Settings extends AppCompatActivity {
 
@@ -85,7 +86,9 @@ public class Settings extends AppCompatActivity {
 
                 SavedData data = new SavedData();
                 data.save254Mode(context, modeId);
-
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "saved!", Toast.LENGTH_SHORT);
+                toast.show();
             }
         });
 

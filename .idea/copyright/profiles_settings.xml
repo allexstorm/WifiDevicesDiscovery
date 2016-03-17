@@ -1,3 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="Alexander Samtsov" />
+  <settings default="Alexander Samtsov">
+    <module2copyright>
+      <element module="All" copyright="Alexander Samtsov" />
+    </module2copyright>
+  </settings>
 </component>

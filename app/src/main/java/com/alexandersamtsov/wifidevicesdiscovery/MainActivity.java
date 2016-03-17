@@ -68,13 +68,14 @@ public class MainActivity extends AppCompatActivity {
     private String ssid;
     private Button btnSettings;
 
-    private Context context;
+    private Context context = this;
 
 
     private ListView lstDevList;
 
     private NetworkCheck networkCheck;
     private NetworkCheckAll networkCheckAll;
+    private NetworkCheckAllPing networkCheckAllPing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,12 +139,19 @@ public class MainActivity extends AppCompatActivity {
         btnScan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                networkCheckAll = new NetworkCheckAll();
-                networkCheckAll.execute();
+                SavedData data = new SavedData();
+                if(data.load254Mode(context) == 1) {
+                    networkCheckAll = new NetworkCheckAll();
+                    networkCheckAll.execute();
+                }
+                else
+                {
+                    networkCheckAllPing = new NetworkCheckAllPing();
+                    networkCheckAllPing.execute();
+                }
 
                 networkCheck = new NetworkCheck();
                 networkCheck.execute();
-
 
             }
         });
@@ -198,6 +206,35 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private class NetworkCheckAllPing extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            txtScan254.setText(String.format(getString(R.string.mainactivity_pinging), checkIp));
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+
+
+            pingAll();
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            txtScan254.setText(String.format(getString(R.string.mainactivity_finishedpinging), checkIp));
+
+
+        }
+    }
+
     private void scanAll()
     {
         InetAddress inetAddress;
@@ -214,6 +251,16 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             //ifHostUp(checkIp + i);
+            Log.d(TAG, checkIp + i);
+        }
+    }
+
+    private void pingAll()
+    {
+        InetAddress inetAddress;
+        for (int i = 1; i < 255; i++)
+        {
+            ifHostUp(checkIp + i);
             Log.d(TAG, checkIp + i);
         }
     }
