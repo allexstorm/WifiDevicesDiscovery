@@ -27,45 +27,28 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.alexandersamtsov.wifidevicesdiscovery.Settings">
+    tools:context="com.alexandersamtsov.wifidevicesdiscovery.Information">
 
-    <TextView
+
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/settings_network_discovery_method"
-        android:id="@+id/settings_modelbl"
+        android:text="@string/information_about_button"
+        android:id="@+id/information_about_button"
         android:layout_gravity="center"/>
 
-    <RadioGroup
-        android:id="@+id/settings_choose254mode"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:orientation='vertical'>
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_254_fastmode"
-            android:id="@+id/settings_254fast_mode" />
-        <RadioButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/settings_254_slowmode"
-            android:id="@+id/settings_254slow_mode" />
-    </RadioGroup>
+        android:text="@string/information_rate_this_app"
+        android:id="@+id/information_rate_this_app_btn"
+        android:layout_gravity="center"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/settings_save254mode_button"
-        android:id="@+id/settings_save254mode_button"
-        android:layout_gravity="center_horizontal" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/settings_infobtn"
-        android:id="@+id/settings_infobtn"
-        android:layout_gravity="center_horizontal" />
+        android:text="@string/information_updates_log"
+        android:id="@+id/information_updates_log"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

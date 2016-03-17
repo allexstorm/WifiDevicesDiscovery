@@ -44,6 +44,9 @@
         <activity
             android:name=".Settings"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".Information"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -39,6 +39,7 @@ public class Settings extends AppCompatActivity {
     private Context context = this;
 
     private Button btnSaveMode;
+    private Button btnInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class Settings extends AppCompatActivity {
         choose254Mode = (RadioGroup) findViewById(R.id.settings_choose254mode);
         fast = (RadioButton) findViewById(R.id.settings_254fast_mode);
         slow = (RadioButton) findViewById(R.id.settings_254slow_mode);
+        btnInfo = (Button) findViewById(R.id.settings_infobtn);
 
 
         SavedData data = new SavedData();
@@ -89,6 +91,15 @@ public class Settings extends AppCompatActivity {
                 Toast toast = Toast.makeText(getApplicationContext(),
                         "saved!", Toast.LENGTH_SHORT);
                 toast.show();
+            }
+        });
+
+        btnInfo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Settings.this, Information.class);
+                startActivity(intent);
+
             }
         });
 

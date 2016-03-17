@@ -40,6 +40,17 @@
     <string name="settings_254_slowmode">slow (several minutes to wait)</string>
     <string name="settings_save254mode_button">save</string>
     <string name="settings_network_discovery_method">Choose network discovery method:</string>
+    <string name="settings_infobtn">info</string>
 
+
+
+    <string name="information_about_button">about</string>
+    <string name="information_rate_this_app">rate this app</string>
+    <string name="information_updates_log">changelog</string>
+
+    <string name="settings_license_text">Copyright &#169; 2016 Alexander Samtsov\n\nWifi Devices Discovery is licensed under the GNU General Public License version 3 (GNU GPLv3) or later. You can see it here: </string>
+    <string name="settings_gnulink">http://www.gnu.org/licenses/</string>
+
+    <string name="changelog_1.0.0">changelog info</string>
 
 </resources>
