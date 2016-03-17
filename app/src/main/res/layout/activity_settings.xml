@@ -29,6 +29,13 @@
     android:orientation="vertical"
     tools:context="com.alexandersamtsov.wifidevicesdiscovery.Settings">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/settings_network_discovery_method"
+        android:id="@+id/settings_modelbl"
+        android:layout_gravity="center"/>
+
     <RadioGroup
         android:id="@+id/settings_choose254mode"
         android:layout_width="wrap_content"

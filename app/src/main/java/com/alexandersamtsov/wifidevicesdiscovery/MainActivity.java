@@ -282,8 +282,10 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... params) {
 
 
+
             try {
-                Thread.sleep(12000);
+                    Thread.sleep(12000);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
