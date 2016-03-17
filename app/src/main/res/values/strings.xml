@@ -36,8 +36,8 @@
 
     <string name="mainactivity_pinging">Pinging %1$s 1 &#8211; 254</string>
     <string name="mainactivity_finishedpinging">Finished pinging %1$s 1 &#8211; 254</string>
-    <string name="settings_254_fastmode">fast method</string>
-    <string name="settings_254_slowmode">slow method (several minutes to wait)</string>
+    <string name="settings_254_fastmode">fast (recommended)</string>
+    <string name="settings_254_slowmode">slow (several minutes to wait)</string>
     <string name="settings_save254mode_button">save</string>
     <string name="settings_network_discovery_method">Choose network discovery method:</string>
 
