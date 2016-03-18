@@ -151,31 +151,38 @@ public class DeviceInformation extends AppCompatActivity {
         ArrayList<String> openPorts = new ArrayList<>();
         for(int i = 1; i < 100; i++)
         {
-            if(isPortOpen(hostInfoArray[0], i, 20))
+            if(isPortOpenTCP(hostInfoArray[0], i, 20))
             {
 
-                openPorts.add(String.valueOf(i));
-                Log.d(TAG, hostInfoArray[0] + " " + i + " port");
+                openPorts.add(String.valueOf(i) + " TCP");
+                Log.d(TAG, hostInfoArray[0] + " " + i + " TCP port");
+            }
+            if(isPortOpenUDP(hostInfoArray[0], i))
+            {
+                openPorts.add(String.valueOf(i) + " UDP");
+                Log.d(TAG, hostInfoArray[0] + " " + i + " UDP port");
             }
         }
         return openPorts;
     }
 
+    private boolean isPortOpenTCP(String ip, int port, int timeout) {
 
-    private boolean isPortOpen(String ip, int port, int timeout) {
+         try {
+         Socket socket = new Socket();
+         socket.connect(new InetSocketAddress(ip, port), timeout);
+         socket.close();
+         return true;
+         } catch (Exception e) {
+         e.printStackTrace();
+         return false;
+         }
 
-        /**try {
-            Socket socket = new Socket();
-            socket.connect(new InetSocketAddress(ip, port), timeout);
-            socket.close();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }**/
+    }
+
+    private boolean isPortOpenUDP(String ip, int port) {
 
 
-        //  FIXED
          try {
          DatagramSocket dSocket = new DatagramSocket();
          dSocket.connect(new InetSocketAddress(ip, port));
@@ -196,8 +203,6 @@ public class DeviceInformation extends AppCompatActivity {
          {
          return false;
          }
-
-
 
 
     }
