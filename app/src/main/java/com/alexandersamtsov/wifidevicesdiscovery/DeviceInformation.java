@@ -19,6 +19,7 @@
 
 package com.alexandersamtsov.wifidevicesdiscovery;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.wifi.WifiInfo;
@@ -28,6 +29,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -104,6 +106,15 @@ public class DeviceInformation extends AppCompatActivity {
                 openPorts);
         lstOpenPorts.setAdapter(arrayAdapter);
 
+        lstOpenPorts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> listView, View view, int position, long id) {
+
+                //String getPortLabel = get
+                showPortMenu(openPorts.get(position));
+
+            }
+        });
 
         btnScanPort.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -241,6 +252,15 @@ public class DeviceInformation extends AppCompatActivity {
     }
 
 
+    private void showPortMenu(String portTitle) {
+        Port port = new Port(this);
+        View mPort = port.getView();
+        mPort.refreshDrawableState();
+        new AlertDialog.Builder(DeviceInformation.this)
+                .setView(mPort)
+                .setTitle(portTitle)
+                .show();
+    }
 
 
 }
