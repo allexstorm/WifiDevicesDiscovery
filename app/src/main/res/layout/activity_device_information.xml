@@ -50,7 +50,25 @@
         android:id="@+id/deviceinformation_mac"
         android:layout_gravity="center"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/deviceinformation_scanportstxt"
+        android:layout_gravity="center"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deviceinformation_scanportsbtn"
+        android:id="@+id/deviceinformation_scanportsbutton"
+        android:layout_gravity="center"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deviceinformation_openportslist"
+        android:layout_gravity="center"/>
 
 
 

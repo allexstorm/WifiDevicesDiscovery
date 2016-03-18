@@ -52,5 +52,10 @@
     <string name="settings_gnulink">http://www.gnu.org/licenses/</string>
 
     <string name="changelog_1.0.0">changelog info</string>
+    <string name="deviceinformation_scanportsbtn">scan ports</string>
+    <string name="deviceinformation_scanportstxt">Click to detect open ports!</string>
+
+    <string name="deviceinformation_scanningports">Scanning ports&#8230;</string>
+    <string name="deviceinformation_scanningportsfinished">Finished scanning ports!</string>
 
 </resources>
