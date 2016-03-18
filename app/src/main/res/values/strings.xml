@@ -57,5 +57,6 @@
 
     <string name="deviceinformation_scanningports">Scanning ports&#8230;</string>
     <string name="deviceinformation_scanningportsfinished">Finished scanning ports!</string>
+    <string name="deviceinformation_setnumberofportstoscan">number of ports to scan, 1000 by default</string>
 
 </resources>

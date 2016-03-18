@@ -57,6 +57,14 @@
         android:id="@+id/deviceinformation_scanportstxt"
         android:layout_gravity="center"/>
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/deviceinformation_setportstoscan"
+        android:inputType="number"
+        android:hint="@string/deviceinformation_setnumberofportstoscan"
+        android:layout_gravity="center"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

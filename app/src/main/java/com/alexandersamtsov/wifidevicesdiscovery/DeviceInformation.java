@@ -30,6 +30,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -63,6 +64,9 @@ public class DeviceInformation extends AppCompatActivity {
     private ArrayAdapter<String> arrayAdapter;
     private ListView lstOpenPorts;
 
+    private int portsToScan;
+    private EditText editPortsNumber;
+
 
     private static final String TAG = "DeviceInformation";
 
@@ -77,6 +81,8 @@ public class DeviceInformation extends AppCompatActivity {
         txtScanPort = (TextView) findViewById(R.id.deviceinformation_scanportstxt);
         btnScanPort = (Button) findViewById(R.id.deviceinformation_scanportsbutton);
         lstOpenPorts = (ListView) findViewById(R.id.deviceinformation_openportslist);
+        editPortsNumber = (EditText) findViewById(R.id.deviceinformation_setportstoscan);
+
 
 
         hostsInfo = getIntent().getExtras().getString("hostinfo");
@@ -87,6 +93,8 @@ public class DeviceInformation extends AppCompatActivity {
         txtMac.setText(hostInfoArray[2]);
         txtVendorName.setText(hostInfoArray[1]);
         txtScanPort.setText(getString(R.string.deviceinformation_scanportstxt));
+
+
 
 
         openPorts = new ArrayList<>();
@@ -148,8 +156,16 @@ public class DeviceInformation extends AppCompatActivity {
 
     private ArrayList<String> portsScanning()
     {
+        if(!editPortsNumber.getText().toString().matches(""))
+        {
+            portsToScan = Integer.valueOf(editPortsNumber.getText().toString());
+        }
+        else
+        {
+            portsToScan = 1000;
+        }
         ArrayList<String> openPorts = new ArrayList<>();
-        for(int i = 1; i < 100; i++)
+        for(int i = 1; i < portsToScan + 1; i++)
         {
             if(isPortOpenTCP(hostInfoArray[0], i, 20))
             {
