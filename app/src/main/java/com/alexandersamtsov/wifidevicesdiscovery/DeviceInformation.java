@@ -38,6 +38,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.sql.SQLException;
@@ -150,6 +153,7 @@ public class DeviceInformation extends AppCompatActivity {
         {
             if(isPortOpen(hostInfoArray[0], i, 20))
             {
+
                 openPorts.add(String.valueOf(i));
                 Log.d(TAG, hostInfoArray[0] + " " + i + " port");
             }
@@ -160,7 +164,7 @@ public class DeviceInformation extends AppCompatActivity {
 
     private boolean isPortOpen(String ip, int port, int timeout) {
 
-        try {
+        /**try {
             Socket socket = new Socket();
             socket.connect(new InetSocketAddress(ip, port), timeout);
             socket.close();
@@ -168,7 +172,34 @@ public class DeviceInformation extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
             return false;
-        }
+        }**/
+
+
+        // trying using DatagramSocket along but always get true
+        //boolean b;
+         try {
+         DatagramSocket dSocket = new DatagramSocket();
+         dSocket.connect(new InetSocketAddress(ip, port));
+         byte[] bytes = new byte[64];
+
+             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet sending");
+         dSocket.send(new DatagramPacket(bytes, bytes.length));
+             dSocket.setSoTimeout(20);
+             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet sending done or timeout");
+             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet receiving");
+         dSocket.receive(new DatagramPacket(bytes, bytes.length));
+             dSocket.setSoTimeout(20);
+             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet receiving done or timeout");
+         dSocket.close();
+            return true;
+         }
+         catch (Exception e)
+         {
+         return false;
+         }
+
+
+
 
     }
 
