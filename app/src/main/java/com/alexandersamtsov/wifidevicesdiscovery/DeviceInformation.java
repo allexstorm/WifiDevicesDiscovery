@@ -110,7 +110,6 @@ public class DeviceInformation extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> listView, View view, int position, long id) {
 
-                //String getPortLabel = get
                 showPortMenu(openPorts.get(position));
 
             }
@@ -253,13 +252,28 @@ public class DeviceInformation extends AppCompatActivity {
 
 
     private void showPortMenu(String portTitle) {
+
         Port port = new Port(this);
         View mPort = port.getView();
         mPort.refreshDrawableState();
-        new AlertDialog.Builder(DeviceInformation.this)
-                .setView(mPort)
-                .setTitle(portTitle)
-                .show();
+        AlertDialog.Builder dBuilder = new AlertDialog.Builder(this);
+        final AlertDialog alert = dBuilder.create();
+                alert.setView(mPort);
+                alert.setTitle(portTitle);
+                alert.show();
+
+        Button btnConnect = (Button) mPort.findViewById(R.id.port_connect);
+
+        btnConnect.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(DeviceInformation.this, PortConnection.class);
+                alert.dismiss();
+                //alert.cancel();
+                startActivity(intent);
+
+            }
+        });
+
     }
 
 
