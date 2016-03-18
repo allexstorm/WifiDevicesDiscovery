@@ -43,7 +43,6 @@
     <string name="settings_infobtn">info</string>
 
 
-
     <string name="information_about_button">about</string>
     <string name="information_rate_this_app">rate this app</string>
     <string name="information_updates_log">changelog</string>
@@ -57,7 +56,12 @@
 
     <string name="deviceinformation_scanningports">Scanning ports&#8230;</string>
     <string name="deviceinformation_scanningportsfinished">Finished scanning ports!</string>
-    <string name="deviceinformation_setnumberofportstoscan">number of ports to scan, 1000 by default</string>
+    <string name="deviceinformation_setnumberofportstoscan">Number of ports to scan, 1000 by default</string>
     <string name="port_connect">connect</string>
+
+    <string name="portconnection_writehere_stringtcp">Write here!</string>
+    <string name="portconnection_sendbtntcp">send TCP</string>
+    <string name="portconnection_writehere_stringudp">Write here!</string>
+    <string name="portconnection_sendbtnudp">send UDP</string>
 
 </resources>

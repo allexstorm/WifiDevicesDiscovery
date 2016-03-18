@@ -27,56 +27,35 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.alexandersamtsov.wifidevicesdiscovery.DeviceInformation">
+    tools:context="com.alexandersamtsov.wifidevicesdiscovery.PortConnection">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/deviceinformation_hostaddress"
+        android:id="@+id/portconnection_writeheretcp"
+        android:hint="@string/portconnection_writehere_stringtcp"
         android:layout_gravity="center"/>
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/deviceinformation_vendorname"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/deviceinformation_mac"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/deviceinformation_scanportstxt"
+        android:text="@string/portconnection_sendbtntcp"
+        android:id="@+id/portconnection_sendtcp"
         android:layout_gravity="center"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/deviceinformation_setportstoscan"
-        android:inputType="number"
-        android:hint="@string/deviceinformation_setnumberofportstoscan" />
+        android:id="@+id/portconnection_writehereudp"
+        android:hint="@string/portconnection_writehere_stringudp"
+        android:layout_gravity="center"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/deviceinformation_scanportsbtn"
-        android:id="@+id/deviceinformation_scanportsbutton"
+        android:text="@string/portconnection_sendbtnudp"
+        android:id="@+id/portconnection_sendudp"
         android:layout_gravity="center"/>
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/deviceinformation_openportslist"
-        android:layout_gravity="center"/>
-
 
 
 </LinearLayout>

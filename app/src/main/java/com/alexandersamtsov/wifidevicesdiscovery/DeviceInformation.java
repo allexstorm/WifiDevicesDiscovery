@@ -215,14 +215,14 @@ public class DeviceInformation extends AppCompatActivity {
          dSocket.connect(new InetSocketAddress(ip, port));
          byte[] bytes = new byte[64];
 
-             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet sending");
+             Log.d(TAG, ip + " port:" + port + " packet sending");
          dSocket.send(new DatagramPacket(bytes, bytes.length));
              dSocket.setSoTimeout(20);
-             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet sending done or timeout");
-             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet receiving");
+             Log.d(TAG, ip + " port:" + port + " packet sending done or timeout");
+             Log.d(TAG, ip + " port:" + port + " packet receiving");
          dSocket.receive(new DatagramPacket(bytes, bytes.length));
              dSocket.setSoTimeout(20);
-             Log.d(TAG, hostInfoArray[0] + " port:" + port + " packet receiving done or timeout");
+             Log.d(TAG, ip + " port:" + port + " packet receiving done or timeout");
          dSocket.close();
             return true;
          }
