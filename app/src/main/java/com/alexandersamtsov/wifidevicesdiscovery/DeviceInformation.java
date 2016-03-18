@@ -175,8 +175,7 @@ public class DeviceInformation extends AppCompatActivity {
         }**/
 
 
-        // trying using DatagramSocket along but always get true
-        //boolean b;
+        //  FIXED
          try {
          DatagramSocket dSocket = new DatagramSocket();
          dSocket.connect(new InetSocketAddress(ip, port));
