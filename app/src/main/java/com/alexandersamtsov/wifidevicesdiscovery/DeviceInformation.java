@@ -106,6 +106,7 @@ public class DeviceInformation extends AppCompatActivity {
                 openPorts);
         lstOpenPorts.setAdapter(arrayAdapter);
 
+        /** TODO: implement tcp, udp, ssh, other connections in PortConnection class
         lstOpenPorts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> listView, View view, int position, long id) {
@@ -113,7 +114,9 @@ public class DeviceInformation extends AppCompatActivity {
                 showPortMenu(openPorts.get(position));
 
             }
-        });
+        });**/
+
+
 
         btnScanPort.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
