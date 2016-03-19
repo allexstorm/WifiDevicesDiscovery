@@ -251,7 +251,7 @@ public class DeviceInformation extends AppCompatActivity {
     }
 
 
-    private void showPortMenu(String portTitle) {
+    private void showPortMenu(final String portTitle) {
 
         Port port = new Port(this);
         View mPort = port.getView();
@@ -266,7 +266,12 @@ public class DeviceInformation extends AppCompatActivity {
 
         btnConnect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                String ip = hostInfoArray[0];
+                String[] portSplitted = portTitle.split(" ");
+                int port = Integer.valueOf(portSplitted[0]);
                 Intent intent = new Intent(DeviceInformation.this, PortConnection.class);
+                intent.putExtra("ip", ip);
+                intent.putExtra("port", port);
                 alert.dismiss();
                 //alert.cancel();
                 startActivity(intent);

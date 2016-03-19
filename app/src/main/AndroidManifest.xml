@@ -47,7 +47,8 @@
         <activity
             android:name=".Information"
             android:screenOrientation="portrait" />
-        <activity android:name=".PortConnection"></activity>
+        <activity android:name=".PortConnection"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
