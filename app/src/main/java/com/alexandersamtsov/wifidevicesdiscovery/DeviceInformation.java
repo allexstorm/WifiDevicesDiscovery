@@ -22,6 +22,7 @@ package com.alexandersamtsov.wifidevicesdiscovery;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
@@ -46,6 +47,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.URI;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -106,7 +108,6 @@ public class DeviceInformation extends AppCompatActivity {
                 openPorts);
         lstOpenPorts.setAdapter(arrayAdapter);
 
-        /** TODO: implement tcp, udp, ssh, other connections in PortConnection class
         lstOpenPorts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> listView, View view, int position, long id) {
@@ -114,7 +115,7 @@ public class DeviceInformation extends AppCompatActivity {
                 showPortMenu(openPorts.get(position));
 
             }
-        });**/
+        });
 
 
 
@@ -265,6 +266,17 @@ public class DeviceInformation extends AppCompatActivity {
                 alert.setTitle(portTitle);
                 alert.show();
 
+        Button btnGoogleIt = (Button) mPort.findViewById(R.id.port_googleit);
+
+        btnGoogleIt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com" + "/search?q=" + portTitle));
+                startActivity(browserIntent);
+
+            }
+        });
+
+        /**  TODO: implement tcp, udp, ssh, other connections in PortConnection class
         Button btnConnect = (Button) mPort.findViewById(R.id.port_connect);
 
         btnConnect.setOnClickListener(new View.OnClickListener() {
@@ -280,7 +292,7 @@ public class DeviceInformation extends AppCompatActivity {
                 startActivity(intent);
 
             }
-        });
+        });**/
 
     }
 

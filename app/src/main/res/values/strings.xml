@@ -63,5 +63,6 @@
     <string name="portconnection_sendbtntcp">send TCP</string>
     <string name="portconnection_writehere_stringudp">Write here!</string>
     <string name="portconnection_sendbtnudp">send UDP</string>
+    <string name="port_googleit">google it!</string>
 
 </resources>
