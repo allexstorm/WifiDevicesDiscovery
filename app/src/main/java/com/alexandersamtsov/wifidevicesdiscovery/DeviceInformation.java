@@ -67,6 +67,7 @@ public class DeviceInformation extends AppCompatActivity {
     private ArrayList<String> openPorts;
     private ArrayAdapter<String> arrayAdapter;
     private ListView lstOpenPorts;
+    private String host;
 
     private int portsToScan;
     private EditText editPortsNumber;
@@ -92,8 +93,17 @@ public class DeviceInformation extends AppCompatActivity {
         hostsInfo = getIntent().getExtras().getString("hostinfo");
         if (hostsInfo != null) {
             hostInfoArray = hostsInfo.split("\n");
+            if(hostInfoArray[0].contains("unpingable"))
+            {
+                String[] str = hostInfoArray[0].split(" ");
+                host = str[0];
+            }
+            else
+            {
+                host = hostInfoArray[0];
+            }
         }
-        txtHostAddress.setText(hostInfoArray[0]);
+        txtHostAddress.setText(host);
         txtMac.setText(hostInfoArray[2]);
         txtVendorName.setText(hostInfoArray[1]);
         txtScanPort.setText(getString(R.string.deviceinformation_scanportstxt));
@@ -181,16 +191,16 @@ public class DeviceInformation extends AppCompatActivity {
         ArrayList<String> openPorts = new ArrayList<>();
         for(int i = 1; i < portsToScan + 1; i++)
         {
-            if(isPortOpenTCP(hostInfoArray[0], i, 20))
+            if(isPortOpenTCP(host, i, 28))
             {
 
                 openPorts.add(String.valueOf(i) + " TCP");
-                Log.d(TAG, hostInfoArray[0] + " " + i + " TCP port");
+                Log.d(TAG, host + " " + i + " TCP port");
             }
-            if(isPortOpenUDP(hostInfoArray[0], i))
+            if(isPortOpenUDP(host, i))
             {
                 openPorts.add(String.valueOf(i) + " UDP");
-                Log.d(TAG, hostInfoArray[0] + " " + i + " UDP port");
+                Log.d(TAG, host + " " + i + " UDP port");
             }
         }
         return openPorts;
@@ -220,11 +230,11 @@ public class DeviceInformation extends AppCompatActivity {
 
              Log.d(TAG, ip + " port:" + port + " packet sending");
          dSocket.send(new DatagramPacket(bytes, bytes.length));
-             dSocket.setSoTimeout(20);
+             dSocket.setSoTimeout(28);
              Log.d(TAG, ip + " port:" + port + " packet sending done or timeout");
              Log.d(TAG, ip + " port:" + port + " packet receiving");
          dSocket.receive(new DatagramPacket(bytes, bytes.length));
-             dSocket.setSoTimeout(20);
+             dSocket.setSoTimeout(28);
              Log.d(TAG, ip + " port:" + port + " packet receiving done or timeout");
          dSocket.close();
             return true;
@@ -281,7 +291,7 @@ public class DeviceInformation extends AppCompatActivity {
 
         btnConnect.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String ip = hostInfoArray[0];
+                String ip = host;
                 String[] portSplitted = portTitle.split(" ");
                 int port = Integer.valueOf(portSplitted[0]);
                 Intent intent = new Intent(DeviceInformation.this, PortConnection.class);
