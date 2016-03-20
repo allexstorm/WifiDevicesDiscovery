@@ -56,7 +56,7 @@
 
     <string name="deviceinformation_scanningports">Scanning ports&#8230;</string>
     <string name="deviceinformation_scanningportsfinished">Finished scanning ports!</string>
-    <string name="deviceinformation_setnumberofportstoscan">Number of ports to scan, 1000 by default</string>
+    <string name="deviceinformation_setnumberofportstoscan">Number of ports to scan, 1024 by default</string>
     <string name="port_connect">connect</string>
 
     <string name="portconnection_writehere_stringtcp">Write here!</string>

@@ -186,10 +186,10 @@ public class DeviceInformation extends AppCompatActivity {
         }
         else
         {
-            portsToScan = 1000;
+            portsToScan = 1024;
         }
         ArrayList<String> openPorts = new ArrayList<>();
-        for(int i = 1; i < portsToScan + 1; i++)
+        for(int i = 0; i < portsToScan; i++)
         {
             if(isPortOpenTCP(host, i, 28))
             {
