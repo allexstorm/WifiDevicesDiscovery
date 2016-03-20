@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
     private NetworkCheck networkCheck;
     private NetworkCheckAll networkCheckAll;
-    private NetworkCheckAllPing networkCheckAllPing;
+    //private NetworkCheckAllPing networkCheckAllPing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnSettings.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Settings.class);
+                Intent intent = new Intent(MainActivity.this, Information.class);
                 startActivity(intent);
 
             }
@@ -144,11 +144,14 @@ public class MainActivity extends AppCompatActivity {
                     networkCheckAll = new NetworkCheckAll();
                     networkCheckAll.execute();
                 }
+
+
+                /**  very slow and freeze on some devices
                 else
                 {
                     networkCheckAllPing = new NetworkCheckAllPing();
                     networkCheckAllPing.execute();
-                }
+                }**/
 
                 networkCheck = new NetworkCheck();
                 networkCheck.execute();
@@ -206,9 +209,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class NetworkCheckAllPing extends AsyncTask<Void, Void, Void> {
 
-        @Override
+    /**private class NetworkCheckAllPing extends AsyncTask<Void, Void, Void> {
+
+        //@Override
         protected void onPreExecute() {
             super.onPreExecute();
 
@@ -216,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-        @Override
+        //@Override
         protected Void doInBackground(Void... params) {
 
 
@@ -225,7 +229,7 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
-        @Override
+        //@Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
@@ -233,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-    }
+    }**/
 
     private void scanAll()
     {
@@ -255,7 +259,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void pingAll()
+    /**private void pingAll()
     {
         InetAddress inetAddress;
         for (int i = 1; i < 255; i++)
@@ -263,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
             ifHostUp(checkIp + i);
             Log.d(TAG, checkIp + i);
         }
-    }
+    }**/
 
 
 
