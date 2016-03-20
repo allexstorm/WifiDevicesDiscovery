@@ -139,11 +139,10 @@ public class MainActivity extends AppCompatActivity {
         btnScan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                SavedData data = new SavedData();
-                if(data.load254Mode(context) == 1) {
+
                     networkCheckAll = new NetworkCheckAll();
                     networkCheckAll.execute();
-                }
+
 
 
                 /**  very slow and freeze on some devices
