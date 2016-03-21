@@ -21,6 +21,7 @@
     <string name="app_name">Wifi Devices Discovery</string>
 
     <string name="status_searching">Scanning&#8230;</string>
+    <string name="status_waiting">Waiting&#8230;</string>
     <string name="status_finished">Finished! Devices discovered: %1$s</string>
     <string name="status_default">Click to Scan!</string>
     <string name="mainactivity_btn_scan">Scan</string>

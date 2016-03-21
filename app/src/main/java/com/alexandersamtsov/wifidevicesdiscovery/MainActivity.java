@@ -185,6 +185,7 @@ public class MainActivity extends AppCompatActivity {
             super.onPreExecute();
 
             txtScan254.setText(String.format(getString(R.string.mainactivity_reaching), checkIp));
+            txtDisplay.setText(getString(R.string.status_waiting));
 
         }
 
