@@ -182,8 +182,13 @@ public class VendorsDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String vendor;
         Cursor c = db.rawQuery("SELECT vendor FROM vendors WHERE mac = '"+macEdit+"'", null);
-        c.moveToFirst();
-        vendor = c.getString(c.getColumnIndex("vendor"));
+        if(c.moveToFirst()) {
+            vendor = c.getString(c.getColumnIndex("vendor"));
+        }
+        else
+        {
+            vendor = "unknown";
+        }
         c.close();
         return vendor;
     }
