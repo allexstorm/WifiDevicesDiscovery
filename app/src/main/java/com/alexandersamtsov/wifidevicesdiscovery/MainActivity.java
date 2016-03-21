@@ -152,8 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     networkCheckAllPing.execute();
                 }**/
 
-                networkCheck = new NetworkCheck();
-                networkCheck.execute();
+
 
             }
         });
@@ -203,6 +202,8 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             txtScan254.setText(String.format(getString(R.string.mainactivity_finishedreaching), checkIp));
+            networkCheck = new NetworkCheck();
+            networkCheck.execute();
 
 
         }
@@ -286,12 +287,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            try {
-                    Thread.sleep(20000);
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
             hosts = scanSubNet();
 
             return null;
