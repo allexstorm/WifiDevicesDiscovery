@@ -50,6 +50,8 @@
 
     <string name="settings_license_text">Copyright &#169; 2016 Alexander Samtsov\n\nWifi Devices Discovery is licensed under the GNU General Public License version 3 (GNU GPLv3) or later. You can see it here: </string>
     <string name="settings_gnulink">http://www.gnu.org/licenses/</string>
+    <string name="settings_github_text">Source code can be found here: </string>
+    <string name="settings_github_link">https://github.com/a7ex12/WifiDevicesDiscovery</string>
 
     <string name="changelog_1.0.0">no changes yet</string>
     <string name="deviceinformation_scanportsbtn">scan ports</string>

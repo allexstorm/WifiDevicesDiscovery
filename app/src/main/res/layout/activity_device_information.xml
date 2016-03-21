@@ -62,7 +62,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/deviceinformation_setportstoscan"
         android:inputType="number"
-        android:hint="@string/deviceinformation_setnumberofportstoscan" />
+        android:hint="@string/deviceinformation_setnumberofportstoscan"
+        android:textSize="17sp" />
 
     <Button
         android:layout_width="wrap_content"

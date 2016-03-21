@@ -43,6 +43,21 @@
             android:id="@+id/license_gnulink"
             android:textSize="14sp" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_github_text"
+            android:id="@+id/license_github_text"
+            android:textSize="14sp" />
+
+        <TextView
+            android:autoLink="web"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_github_link"
+            android:id="@+id/license_githublink"
+            android:textSize="14sp" />
+
 
     </LinearLayout>
 
