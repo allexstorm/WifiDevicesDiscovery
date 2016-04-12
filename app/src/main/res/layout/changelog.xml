@@ -33,7 +33,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/changelog_1.0.0"
+            android:text="@string/changelog"
             android:id="@+id/changelog_1.0.1"
             android:textSize="14sp" />
 

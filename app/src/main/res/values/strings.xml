@@ -53,7 +53,7 @@
     <string name="settings_github_text">Source code can be found here: </string>
     <string name="settings_github_link">https://github.com/a7ex12/WifiDevicesDiscovery</string>
 
-    <string name="changelog_1.0.0">no changes yet</string>
+    <string name="changelog">v1.0.1 - UPDATE mac reveal on user device</string>
     <string name="deviceinformation_scanportsbtn">scan ports</string>
     <string name="deviceinformation_scanportstxt">Click to detect open ports!</string>
 

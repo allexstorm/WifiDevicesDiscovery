@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,6 +36,9 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
@@ -111,7 +115,32 @@ public class MainActivity extends AppCompatActivity {
         WifiManager manager=(WifiManager) getSystemService(Context.WIFI_SERVICE);
         WifiInfo info=manager.getConnectionInfo();
         ssid = info.getSSID();
-        myMac = info.getMacAddress();
+
+        if (Build.VERSION.SDK_INT < 23)
+        {
+            myMac = info.getMacAddress();
+        }
+        else
+        {
+            try {
+                BufferedReader br = new BufferedReader(new FileReader("/sys/class/net/wlan0/address"));
+                try {
+                    String line = br.readLine();
+                    if(line.matches("..:..:..:..:..:.."))
+                    {
+                        myMac = line;
+                    }
+                    else
+                    {
+                        myMac = "not discovered";
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
         int myIpAddress = info.getIpAddress();
         checkIp  = String.format("%d.%d.%d.", (myIpAddress & 0xff), (myIpAddress >> 8 & 0xff), (myIpAddress >> 16 & 0xff));
         myIp = String.format("%d.%d.%d.%d", (myIpAddress & 0xff), (myIpAddress >> 8 & 0xff), (myIpAddress >> 16 & 0xff), (myIpAddress >> 24 & 0xff));
